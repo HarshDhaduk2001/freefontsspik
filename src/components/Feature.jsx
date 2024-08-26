@@ -26,7 +26,7 @@ const featureData = {
 
 const Feature = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full bg-[#F5F5F5] overflow-hidden">
+    <div className="flex flex-col items-center justify-center w-full bg-[#F5F5F5] dark:bg-[#16181E] overflow-hidden">
       <div className="flex items-center justify-between w-full ml-10 pl-4 pt-8 lg:pt-0">
         <div className="flex flex-col items-start justify-start w-full lg:w-1/2">
           <p className="text-blueColor text-[18px] lg:text-[24px] uppercase">
@@ -53,10 +53,10 @@ const Feature = () => {
         ))}
       </div>
       <div className="flex items-center justify-between mx-10 px-8 w-full mt-8 mb-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between bg-whiteColor py-4 lg:py-0 px-4 lg:px-10 gap-4 lg:gap-0 rounded-lg w-[95%]">
+        <div className="flex flex-col lg:flex-row items-center justify-between bg-whiteColor dark:bg-[#0A0A0A] py-4 lg:py-0 px-4 lg:px-10 gap-4 lg:gap-0 rounded-lg w-[95%]">
           {featureData.client.map((i) => (
             <div className="flex flex-col lg:flex-row items-center justify-center">
-              <span className="text-[24px] lg:text-[56px] text-black font-bold">
+              <span className="text-[24px] lg:text-[56px] font-bold">
                 {i.title}K+
               </span>
               <span className="hidden lg:block text-[16px] lg:text-[24px]">

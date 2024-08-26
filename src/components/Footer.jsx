@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-start gap-5 lg:gap-0 lg:items-center bg-black text-white text-[18px] lg:text-[22px] border-t border-blue-500 w-full py-10 lg:py-20">
+    <div className="flex flex-col lg:flex-row justify-center items-start gap-5 lg:gap-0 lg:items-center bg-black text-white text-[18px] lg:text-[22px] w-full py-10 lg:py-20">
       <div className="flex flex-col items-start justify-center lg:w-2/5 px-4 lg:px-32 font-extralight">
         Fonts are the voice of written communication, and a font market platform
         is the stage where they can speak volumes.

@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
+import Feature from "./components/Feature";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           <Route index element={<Home />} />
         </Routes>
       </div>
+      <Feature />
       <Footer />
     </div>
   );

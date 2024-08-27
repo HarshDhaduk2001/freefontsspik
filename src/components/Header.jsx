@@ -66,7 +66,7 @@ const Header = () => {
 
       {/* Full-Screen Overlay Menu */}
       {menuOpen && (
-        <div className="fixed inset-0 bg-[#F5F5F5] z-50 flex flex-col items-center justify-center">
+        <div className="fixed inset-0 bg-[#F5F5F5] dark:bg-darkCharcol z-50 flex flex-col items-center justify-center">
           {/* Close Button at the Top-Right Corner */}
           <button
             onClick={toggleMenu}

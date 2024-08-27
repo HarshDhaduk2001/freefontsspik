@@ -25,7 +25,7 @@ const Header = () => {
       <div className="flex items-center justify-between w-full mx-10 border border-blueColor rounded-lg h-20 px-4">
         <div className="flex items-center justify-center">
           <p className="text-lg text-blueColor mr-10">FREEFONTSPIK</p>
-          <div className="hidden lg:flex">
+          <div className="hidden lg:flex items-center justify-center">
             {headerData.map((i) => (
               <p
                 key={i.id}

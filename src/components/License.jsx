@@ -147,7 +147,7 @@ const License = () => {
                 </p>
                 {openSource.map((i, index) => (
                   <div key={index}>
-                    <p className="text-[20px] lg:text-[24px] py-4">{i.title}</p>
+                    <p className="text-[20px] lg:text-[24px] py-4 font-medium">{i.title}</p>
                     {i.desc.map((j, indexNumber) => (
                       <p
                         key={indexNumber}
@@ -167,7 +167,7 @@ const License = () => {
                 </p>
                 {closedSource.map((i, index) => (
                   <div key={index}>
-                    <p className="text-[20px] lg:text-[24px] py-4">{i.title}</p>
+                    <p className="text-[20px] lg:text-[24px] py-4 font-medium">{i.title}</p>
                     {i.desc.map((j, indexNumber) => (
                       <p
                         key={indexNumber}

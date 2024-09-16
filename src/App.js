@@ -7,8 +7,9 @@ import ThemeToggle from "./components/ThemeToggle";
 import FAQ from "./components/FAQ";
 import License from "./components/License";
 import Howtoinstall from "./components/Howtoinstall";
-import AboutContact from "./components/AboutContact";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import Contact from "./components/Contact";
+import Forum from "./components/Forum";
 
 const App = () => {
   return (
@@ -18,8 +19,8 @@ const App = () => {
       <div className="flex-grow">
         <Routes>
           <Route index element={<Home />} />
-          <Route path="about" element={<AboutContact />} />
-          <Route path="contactus" element={<AboutContact />} />
+          <Route path="forum" element={<Forum />} />
+          <Route path="contactus" element={<Contact />} />
           <Route path="privacypolicy" element={<PrivacyPolicy />} />
           <Route path="howtoinstall" element={<Howtoinstall />} />
           <Route path="licenses" element={<License />} />

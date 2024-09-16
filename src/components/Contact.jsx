@@ -4,7 +4,7 @@ import img1 from "../assets/Rectangle 68.png";
 import img2 from "../assets/Rectangle 62.png";
 import WorldMap from "../assets/WorldMap.png";
 
-const AboutContact = () => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -245,4 +245,4 @@ const AboutContact = () => {
   );
 };
 
-export default AboutContact;
+export default Contact;

@@ -4,34 +4,55 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
-const validatePassword = (password) => password.trim().length > 0;
+const validatePassword = (password) => password.trim().length >= 6;
+const validateFullName = (name) => name.trim().length > 2;
 
 const Signup = () => {
   const [clicked, setClicked] = useState(false);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
+  const [fullName, setFullName] = useState("");
+  const [fullNameError, setFullNameError] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
+  const toggleConfirmPasswordVisibility = () => {
+    setConfirmPasswordVisible(!confirmPasswordVisible);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const isEmailValid = validateEmail(email);
+    const isFullNameValid = validateFullName(fullName);
     const isPasswordValid = validatePassword(password);
-    setEmailError(!isEmailValid);
-    setPasswordError(!isPasswordValid);
+    const isConfirmPasswordValid = password === confirmPassword;
 
-    if (isEmailValid && isPasswordValid) {
+    setEmailError(!isEmailValid);
+    setFullNameError(!isFullNameValid);
+    setPasswordError(!isPasswordValid);
+    setConfirmPasswordError(!isConfirmPasswordValid);
+
+    if (
+      isEmailValid &&
+      isFullNameValid &&
+      isPasswordValid &&
+      isConfirmPasswordValid
+    ) {
       setClicked(true);
       const params = {
+        FullName: fullName,
         Username: email,
         Password: password,
       };
-      toast.success("You are successfully logged in.");
+      toast.success("You are successfully Registered.");
       console.log(params);
       setClicked(false);
 
@@ -51,12 +72,42 @@ const Signup = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-[#F2F2F2] dark:bg-[#16181E]">
-      <div className="flex flex-col items-center justify-center w-[90%] md:w-[50%] lg:w-[50%] xl:w-[30%] py-10 px-16 bg-whiteColor dark:bg-blackColor rounded-2xl">
-        <h1 className="text-2xl font-bold mb-6 text-neutralMedium text-center lg:text-left">
-          Welcome Back👋
+      <div className="flex flex-col items-center justify-center w-[90%] md:w-[50%] lg:w-[50%] xl:w-[30%] py-8 px-16 bg-whiteColor dark:bg-blackColor rounded-2xl">
+        <h1 className="text-2xl font-bold mb-1 text-neutralMedium text-center lg:text-left">
+          Start for free👋
         </h1>
+        <p className="text-sm text-[#808191] mb-6">Access to all features</p>
         <form onSubmit={handleSubmit} className="w-full">
+          {/* Full Name Field */}
           <div>
+            <label
+              htmlFor="fullName"
+              className={`font-semibold ${fullNameError ? "text-red-500" : ""}`}
+            >
+              Full Name *
+            </label>
+            <input
+              type="text"
+              className={`border ${
+                fullNameError ? "border-red-500" : "border-[#F2F2F2]"
+              } placeholder:text-[#A3A1A7] text-[#333] my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              placeholder="Enter Your Full Name"
+              value={fullName}
+              onChange={(e) => {
+                setFullName(e.target.value);
+                setFullNameError(false);
+              }}
+              onBlur={() => setFullNameError(!validateFullName(fullName))}
+            />
+            {fullNameError && (
+              <p className="text-sm text-red-500 -mt-2">
+                Full name is required.
+              </p>
+            )}
+          </div>
+
+          {/* Email Field */}
+          <div className="mt-1">
             <label
               htmlFor="email"
               className={`font-semibold ${emailError ? "text-red-500" : ""}`}
@@ -67,7 +118,7 @@ const Signup = () => {
               type="text"
               className={`border ${
                 emailError ? "border-red-500" : "border-[#F2F2F2]"
-              } placeholder:text-[#A3A1A7] text-[#A3A1A7] my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              } placeholder:text-[#A3A1A7] text-[#333] my-2 rounded-lg w-full py-2 px-4 outline-none`}
               placeholder="Enter Your Email"
               value={email}
               onChange={(e) => {
@@ -76,25 +127,15 @@ const Signup = () => {
               }}
               onBlur={() => setEmailError(!validateEmail(email))}
             />
-            {emailError ? (
-              validateEmail(email) ? (
-                <p className="text-sm text-red-500 -mt-2">
-                  Maximum 100 characters allowed.
-                </p>
-              ) : email.trim().length > 0 ? (
-                <p className="text-sm text-red-500 -mt-2">
-                  Please enter a valid email.
-                </p>
-              ) : (
-                <p className="text-sm text-red-500 -mt-2">
-                  Email is required field.
-                </p>
-              )
-            ) : (
-              ""
+            {emailError && (
+              <p className="text-sm text-red-500 -mt-2">
+                Please enter a valid email.
+              </p>
             )}
           </div>
-          <div className="mt-4 relative">
+
+          {/* Password Field */}
+          <div className="mt-1 relative">
             <label
               htmlFor="password"
               className={`font-semibold ${passwordError ? "text-red-500" : ""}`}
@@ -105,7 +146,7 @@ const Signup = () => {
               type={passwordVisible ? "text" : "password"}
               className={`border ${
                 passwordError ? "border-red-500" : "border-[#F2F2F2]"
-              } placeholder:text-[#A3A1A7] text-[#A3A1A7] my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              } placeholder:text-[#A3A1A7] text-[#333] my-2 rounded-lg w-full py-2 px-4 outline-none`}
               placeholder="Enter Your Password"
               value={password}
               onChange={(e) => {
@@ -120,12 +161,48 @@ const Signup = () => {
             >
               {passwordVisible ? <VisibilityOff /> : <Visibility />}
             </span>
-            {passwordError ? (
+            {passwordError && (
               <p className="text-sm text-red-500 -mt-2">
-                Password is required field.
+                Password must be at least 6 characters long.
               </p>
-            ) : (
-              ""
+            )}
+          </div>
+
+          {/* Confirm Password Field */}
+          <div className="mt-1 relative">
+            <label
+              htmlFor="confirmPassword"
+              className={`font-semibold ${
+                confirmPasswordError ? "text-red-500" : ""
+              }`}
+            >
+              Confirm Password *
+            </label>
+            <input
+              type={confirmPasswordVisible ? "text" : "password"}
+              className={`border ${
+                confirmPasswordError ? "border-red-500" : "border-[#F2F2F2]"
+              } placeholder:text-[#A3A1A7] text-[#333] my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              placeholder="Confirm Your Password"
+              value={confirmPassword}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
+                setConfirmPasswordError(false);
+              }}
+              onBlur={() =>
+                setConfirmPasswordError(password !== confirmPassword)
+              }
+            />
+            <span
+              onClick={toggleConfirmPasswordVisibility}
+              className="absolute top-10 right-4 cursor-pointer text-[#A3A1A7]"
+            >
+              {confirmPasswordVisible ? <VisibilityOff /> : <Visibility />}
+            </span>
+            {confirmPasswordError && (
+              <p className="text-sm text-red-500 -mt-2">
+                Passwords do not match.
+              </p>
             )}
           </div>
 
@@ -139,16 +216,17 @@ const Signup = () => {
             type="submit"
             fullWidth
             variant="contained"
-            className="rounded-full font-semibold !mt-8 !mb-4 !bg-blueColor hover:!bg-blueColor !capitalize"
+            className="rounded-full font-semibold !mt-6 !mb-3 !bg-blueColor hover:!bg-blueColor !capitalize"
             disabled={clicked}
           >
-            {clicked ? "Loading..." : "Sign in"}
+            {clicked ? "Loading..." : "Sign Up"}
           </Button>
         </form>
+
         <div className="flex items-center justify-center">
-          Dont have an account?&nbsp;
-          <a className="underline font-bold text-blueColor" href="/signup">
-            Sign up
+          Already have an account?&nbsp;
+          <a className="underline font-bold text-blueColor" href="/login">
+            Sign In
           </a>
         </div>
       </div>

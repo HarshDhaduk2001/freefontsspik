@@ -19,7 +19,7 @@ const ForgotPassword = () => {
       const params = {
         Username: email,
       };
-      toast.success("You are successfully logged in.");
+      toast.success("Please check your email.");
       console.log(params);
       setClicked(false);
 
@@ -43,7 +43,9 @@ const ForgotPassword = () => {
         <h1 className="text-2xl font-bold mb-1 text-neutralMedium text-center lg:text-left">
           Set Password
         </h1>
-        <p className="text-sm text-[#808191] mb-6">Restore access to your account</p>
+        <p className="text-sm text-[#808191] mb-6">
+          Restore access to your account
+        </p>
         <form onSubmit={handleSubmit} className="w-full">
           <div>
             <label
@@ -94,6 +96,11 @@ const ForgotPassword = () => {
             {clicked ? "Loading..." : "Reset Password"}
           </Button>
         </form>
+        <div className="flex items-center justify-center">
+          <a className="font-semibold text-blueColor" href="/login">
+            Back to Login
+          </a>
+        </div>
       </div>
     </div>
   );

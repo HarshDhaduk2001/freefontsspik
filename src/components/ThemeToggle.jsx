@@ -1,16 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 
-const ThemeToggle = () => {
-  const [dark, setDark] = useState(false);
+const ThemeToggle = (props) => {
+  const [dark, setDark] = useState(
+    false
+    // window.matchMedia &&
+    //   window.matchMedia("(prefers-color-scheme: dark)").matches
+  );
 
   const darkModeHandler = () => {
     setDark(!dark);
     document.body.classList.toggle("dark");
   };
 
+  // useEffect(() => {
+  //   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  //   const handleChange = (e) => {
+  //     setDark(e.matches);
+  //     document.body.classList.toggle("dark", e.matches);
+  //   };
+
+  //   mediaQuery.addEventListener("change", handleChange);
+
+  //   document.body.classList.toggle("dark", mediaQuery.matches);
+
+  //   return () => mediaQuery.removeEventListener("change", handleChange);
+  // }, []);
+
   return (
-    <div className="flex flex-col items-end justify-center transition-colors duration-200 mr-10">
+    <div
+      className={`${
+        props.hideHeaderFooter ? "hidden" : "flex"
+      } flex-col items-end justify-center transition-colors duration-200 mr-10 mb-4 lg:mb-5`}
+    >
       <input
         type="checkbox"
         id="checkbox"

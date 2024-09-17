@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Feature from "./Feature";
+import Feature from "../Feature";
 
 const faqData = [
   {

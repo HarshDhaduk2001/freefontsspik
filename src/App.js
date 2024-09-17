@@ -1,24 +1,35 @@
 import React from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Header from "./components/Header";
-import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
 import Footer from "./components/Footer";
 import ThemeToggle from "./components/ThemeToggle";
-import FAQ from "./components/FAQ";
-import License from "./components/License";
-import Howtoinstall from "./components/Howtoinstall";
-import PrivacyPolicy from "./components/PrivacyPolicy";
-import Contact from "./components/Contact";
-import Forum from "./components/Forum";
+import Home from "./components/pages/Home";
+import FAQ from "./components/pages/FAQ";
+import License from "./components/pages/License";
+import Howtoinstall from "./components/pages/Howtoinstall";
+import PrivacyPolicy from "./components/pages/PrivacyPolicy";
+import Contact from "./components/pages/Contact";
+import Forum from "./components/pages/Forum";
+import Categories from "./components/pages/Categories";
+import Login from "./components/pages/Login";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
+  const location = useLocation();
+
+  const hideHeaderFooter = location.pathname === "/login";
+
   return (
     <div className="flex flex-col min-h-screen bg-whiteColor dark:bg-blackColor text-blackColor dark:text-whiteColor">
-      <Header />
-      <ThemeToggle />
+      {!hideHeaderFooter && <Header />}
+      <ThemeToggle hideHeaderFooter={hideHeaderFooter} />
+      <ToastContainer />
       <div className="flex-grow">
         <Routes>
           <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="categories" element={<Categories />} />
           <Route path="forum" element={<Forum />} />
           <Route path="contactus" element={<Contact />} />
           <Route path="privacypolicy" element={<PrivacyPolicy />} />
@@ -27,7 +38,7 @@ const App = () => {
           <Route path="faq" element={<FAQ />} />
         </Routes>
       </div>
-      <Footer />
+      {!hideHeaderFooter && <Footer />}
     </div>
   );
 };

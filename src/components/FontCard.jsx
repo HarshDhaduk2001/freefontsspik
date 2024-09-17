@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiHeart } from "react-icons/bi";
-import heart from "../assets/heart.png"
+import heart from "../assets/heart.png";
 
 const FontCard = () => {
+  const [isHovered, setIsHovered] = useState(false);
   return (
-    <div className="border border-blueColor rounded-3xl w-[290px] md:w-[305px] px-4 py-2 text-[#333333]">
+    <div
+      className="border border-blueColor hover:bg-[#F5F5F5] hover:dark:bg-[#16181E] rounded-3xl w-full md:w-[1/2] lg:1/3 xl:1/4 px-4 py-2 text-[#333333] dark:text-whiteColor"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="w-full flex items-start justify-between">
-        <p className="text-[20px] md:text-[24px] w-[90%] font-semibold">
+        <p className="text-[20px] md:text-[24px] w-[80%] font-semibold">
           The five boxing wizards jump quickly 1234567890
         </p>
-        <span className="border border-grayColor rounded-full p-1">
-          {/**<BiHeart />**/}
-          <img src={heart} alt="" />
-        </span>
+        {isHovered && (
+          <span className="flex items-center justify-center border border-grayColor rounded-full h-6 w-6">
+            {/**<BiHeart />**/}
+            <img src={heart} alt="" />
+          </span>
+        )}
       </div>
       <p className="text-[16px] font-semibold mt-4">Tanklager</p>
       <span className="block text-[8px]">by Ariel Martin Perez</span>

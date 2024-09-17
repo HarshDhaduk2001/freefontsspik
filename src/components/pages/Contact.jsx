@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Feature from "./Feature";
-import img1 from "../assets/Rectangle 68.png";
-import img2 from "../assets/Rectangle 62.png";
-import WorldMap from "../assets/WorldMap.png";
+import Feature from "../Feature";
+import img1 from "../../assets/Rectangle 68.png";
+import img2 from "../../assets/Rectangle 62.png";
+import WorldMap from "../../assets/WorldMap.png";
 
 const Contact = () => {
   const [formData, setFormData] = useState({

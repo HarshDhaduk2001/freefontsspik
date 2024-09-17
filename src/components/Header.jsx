@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Search from "../assets/Search.png";
 import { FaBars, FaTimes } from "react-icons/fa";
+import SignupIcon1 from "../assets/SignupIcon1.png";
 
 const headerData = [
   { id: 1, title: "Home", link: "/" },
@@ -21,7 +22,7 @@ const Header = () => {
   };
 
   return (
-    <div className="relative flex items-center justify-center w-full mt-8 lg:mt-20 mb-4 lg:mb-10">
+    <div className="relative flex items-center justify-center w-full mt-8 lg:mt-20 mb-4 lg:mb-5">
       <div className="flex items-center justify-between w-full mx-10 border border-blueColor rounded-lg h-20 px-4">
         <div className="flex items-center justify-center">
           <p className="text-lg text-blueColor mr-10">FREEFONTSPIK</p>
@@ -44,11 +45,17 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search all font and foundries"
-              className="bg-[#F5F5F5] outline-none border-none placeholder-darkCharcol w-[90%]"
+              className="bg-[#F5F5F5] outline-none border-none placeholder-darkCharcol placeholder:text-sm w-[90%]"
             />
           </div>
-          <div className="w-24 h-10 flex items-center justify-center cursor-pointer bg-gradient-to-r from-[#009FFF] to-[#1E77ED] rounded-lg ml-10">
-            Login
+          <div className="flex items-center justify-center cursor-pointer ml-10 mr-5">
+            <a
+              href="/login"
+              className="flex items-center justify-center whitespace-nowrap gap-2"
+            >
+              <img src={SignupIcon1} alt="SignupIcon1" />
+              <span>Sign in / Sign up</span>
+            </a>
           </div>
         </div>
 
@@ -85,8 +92,14 @@ const Header = () => {
               <a href={i.link}>{i.title}</a>
             </p>
           ))}
-          <div className="w-24 mt-8 flex items-center justify-center cursor-pointer bg-gradient-to-r from-[#009FFF] to-[#1E77ED] rounded-lg py-3 text-white">
-            Login
+          <div className="flex items-center justify-center cursor-pointer py-3 text-xl">
+            <a
+              href="/login"
+              className="flex items-center justify-center whitespace-nowrap gap-2"
+            >
+              <img src={SignupIcon1} alt="SignupIcon1" />
+              Sign in / Sign up
+            </a>
           </div>
         </div>
       )}

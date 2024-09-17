@@ -12,13 +12,18 @@ import Contact from "./components/pages/Contact";
 import Forum from "./components/pages/Forum";
 import Categories from "./components/pages/Categories";
 import Login from "./components/pages/Login";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Signup from "./components/pages/Signup";
+import ForgotPassword from "./components/pages/ForgotPassword";
 
 const App = () => {
   const location = useLocation();
 
-  const hideHeaderFooter = location.pathname === "/login";
+  const hideHeaderFooter =
+    location.pathname === "/signup" ||
+    location.pathname === "/login" ||
+    location.pathname === "/forgot-password";
 
   return (
     <div className="flex flex-col min-h-screen bg-whiteColor dark:bg-blackColor text-blackColor dark:text-whiteColor">
@@ -28,7 +33,10 @@ const App = () => {
       <div className="flex-grow">
         <Routes>
           <Route index element={<Home />} />
+          Signup
+          <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="categories" element={<Categories />} />
           <Route path="forum" element={<Forum />} />
           <Route path="contactus" element={<Contact />} />

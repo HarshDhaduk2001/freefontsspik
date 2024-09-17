@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
 const validatePassword = (password) => password.trim().length > 0;
 
-const Login = () => {
+const Signup = () => {
   const [clicked, setClicked] = useState(false);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState(false);
@@ -122,7 +122,7 @@ const Login = () => {
             </span>
             {passwordError ? (
               <p className="text-sm text-red-500 -mt-2">
-              Password is required field.
+                Password is required field.
               </p>
             ) : (
               ""
@@ -147,11 +147,13 @@ const Login = () => {
         </form>
         <div className="flex items-center justify-center">
           Dont have an account?&nbsp;
-          <a className="underline font-bold text-blueColor" href="/signup">Sign up</a>
+          <a className="underline font-bold text-blueColor" href="/signup">
+            Sign up
+          </a>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

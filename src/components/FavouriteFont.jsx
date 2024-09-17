@@ -1,19 +1,56 @@
 import React, { useEffect, useState } from "react";
+import img from "../assets/images/FontCategory/FontCategorySvg";
 
 const data = [
-  { font: "font-sans", title: "NF", desc: "New Fonts" },
-  { font: "font-serif", title: "A1", desc: "Display" },
-  { font: "font-display", title: "Aa", desc: "Script" },
-  { font: "font-monospace", title: "Aa", desc: "Fancy" },
-  { font: "font-fangsong", title: "Fa", desc: "Basic" },
-  { font: "font-display", title: "Aa", desc: "Language Fonts" },
-  { font: "font-Georgia", title: "Aa", desc: "Other" },
+  {
+    font: "font-sans",
+    img: img.NewFontOutline,
+    activeImage: img.NewFontFill,
+    desc: "New Fonts",
+  },
+  {
+    font: "font-serif",
+    img: img.DisplayOutline,
+    activeImage: img.DisplayFill,
+    desc: "Display",
+  },
+  {
+    font: "font-display",
+    img: img.ScriptOutline,
+    activeImage: img.ScriptFill,
+    desc: "Script",
+  },
+  {
+    font: "font-monospace",
+    img: img.FancyOutline,
+    activeImage: img.FancyFill,
+    desc: "Fancy",
+  },
+  {
+    font: "font-fangsong",
+    img: img.DisplayOutline,
+    activeImage: img.DisplayFill,
+    desc: "Basic",
+  },
+  {
+    font: "font-display",
+    img: img.LaguageOutline,
+    activeImage: img.LaguageFill,
+    desc: "Language Fonts",
+  },
+  {
+    font: "font-Georgia",
+    img: img.OtherOutline,
+    activeImage: img.OtherFill,
+    desc: "Other",
+  },
 ];
 
 const FavouriteFont = () => {
   const [active, setActive] = useState(0);
   const [hoverIndex, setHoverIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleResize = () => {
     if (window.innerWidth < 768) {
@@ -33,6 +70,30 @@ const FavouriteFont = () => {
     };
   }, []);
 
+  const checkDarkMode = () => {
+    setIsDarkMode(
+      window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    );
+  };
+
+  useEffect(() => {
+    handleResize();
+    checkDarkMode();
+
+    window.addEventListener("resize", handleResize);
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", checkDarkMode);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .removeEventListener("change", checkDarkMode);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center lg:mx-10 dark:text-white mb-10 mx-10">
       <p className="text-blueColor text-[20px] lg:text-[24px]">CATEGORIES</p>
@@ -41,7 +102,7 @@ const FavouriteFont = () => {
           Browse Your Favorite
         </div>
         <div className="border border-blueColor rounded-2xl w-full">
-          <div className="flex items-center justify-between px-2 md:px-6 lg:px-12 w-full bg-white rounded-2xl dark:bg-darkCharcol text-black pt-4 md:pt-8 pb-7 md:pb-12">
+          <div className="flex items-center justify-between px-2 md:px-6 lg:px-12 w-full bg-white rounded-2xl dark:bg-darkCharcol text-darkCharcol dark:text-whiteColor pt-4 md:pt-8 pb-7 md:pb-12">
             {data.map((i, index) => (
               <div
                 key={index}
@@ -50,11 +111,19 @@ const FavouriteFont = () => {
                 onMouseLeave={() => setHoverIndex(null)}
                 onClick={() => setActive(index)}
               >
-                <h1
-                  className={`text-xl md:text-4xl lg:text-7xl`}
-                >
-                  {i.title}
-                </h1>
+                <img
+                  src={
+                    active === index
+                      ? isDarkMode
+                        ? i.activeImage
+                        : i.activeImage
+                      : isDarkMode
+                      ? i.img
+                      : i.img
+                  }
+                  alt=""
+                  className="h-[25px] w-[35px] md:h-[40px] md:w-[70px] lg:h-[53px] lg:w-[92px]"
+                />
                 <p className="text-center text-[8px] md:text-[18px] lg:text-[24px]">
                   {i.desc}
                 </p>

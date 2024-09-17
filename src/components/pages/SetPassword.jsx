@@ -3,16 +3,10 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
 const validatePassword = (password) => password.trim().length >= 6;
-const validateFullName = (name) => name.trim().length > 2;
 
-const Signup = () => {
+const SetPassword = () => {
   const [clicked, setClicked] = useState(false);
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState(false);
-  const [fullName, setFullName] = useState("");
-  const [fullNameError, setFullNameError] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -30,30 +24,19 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const isEmailValid = validateEmail(email);
-    const isFullNameValid = validateFullName(fullName);
     const isPasswordValid = validatePassword(password);
     const isConfirmPasswordValid =
       password === confirmPassword && confirmPassword.trim().length > 0;
 
-    setEmailError(!isEmailValid);
-    setFullNameError(!isFullNameValid);
     setPasswordError(!isPasswordValid);
     setConfirmPasswordError(!isConfirmPasswordValid);
 
-    if (
-      isEmailValid &&
-      isFullNameValid &&
-      isPasswordValid &&
-      isConfirmPasswordValid
-    ) {
+    if (isPasswordValid && isConfirmPasswordValid) {
       setClicked(true);
       const params = {
-        FullName: fullName,
-        Username: email,
         Password: password,
       };
-      toast.success("You are successfully Registered.");
+      toast.success("Password set successfully.");
       console.log(params);
       setClicked(false);
 
@@ -75,66 +58,12 @@ const Signup = () => {
     <div className="flex items-center justify-center h-screen bg-[#F2F2F2] dark:bg-[#0A0A0A]">
       <div className="flex flex-col items-center justify-center w-[90%] md:w-[50%] lg:w-[50%] xl:w-[30%] py-8 px-16 bg-whiteColor dark:bg-[#16181E] rounded-2xl">
         <h1 className="text-2xl font-bold mb-1 text-neutralMedium text-center lg:text-left">
-          Start for free👋
+          Create New Password
         </h1>
-        <p className="text-sm text-[#808191] mb-6">Access to all features</p>
+        <p className="text-sm text-[#808191] mb-6">
+          Enter a new password for login your account
+        </p>
         <form onSubmit={handleSubmit} className="w-full">
-          {/* Full Name Field */}
-          <div>
-            <label
-              htmlFor="fullName"
-              className={`font-semibold ${fullNameError ? "text-red-500" : ""}`}
-            >
-              Full Name *
-            </label>
-            <input
-              type="text"
-              className={`border ${
-                fullNameError ? "border-red-500" : "border-[#F2F2F2]"
-              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
-              placeholder="Enter Your Full Name"
-              value={fullName}
-              onChange={(e) => {
-                setFullName(e.target.value);
-                setFullNameError(false);
-              }}
-              onBlur={() => setFullNameError(!validateFullName(fullName))}
-            />
-            {fullNameError && (
-              <p className="text-sm text-red-500 -mt-2">
-                Full name is required.
-              </p>
-            )}
-          </div>
-
-          {/* Email Field */}
-          <div className="mt-1">
-            <label
-              htmlFor="email"
-              className={`font-semibold ${emailError ? "text-red-500" : ""}`}
-            >
-              Email *
-            </label>
-            <input
-              type="text"
-              className={`border ${
-                emailError ? "border-red-500" : "border-[#F2F2F2]"
-              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
-              placeholder="Enter Your Email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                setEmailError(false);
-              }}
-              onBlur={() => setEmailError(!validateEmail(email))}
-            />
-            {emailError && (
-              <p className="text-sm text-red-500 -mt-2">
-                Please enter a valid email.
-              </p>
-            )}
-          </div>
-
           {/* Password Field */}
           <div className="mt-1 relative">
             <label
@@ -214,19 +143,12 @@ const Signup = () => {
             className="rounded-full font-semibold !mt-6 !mb-3 !bg-blueColor hover:!bg-blueColor !capitalize"
             disabled={clicked}
           >
-            {clicked ? "Loading..." : "Sign Up"}
+            {clicked ? "Loading..." : "Reset Password"}
           </Button>
         </form>
-
-        <div className="flex items-center justify-center text-sm lg:text-md">
-          Already have an account?&nbsp;
-          <a className="underline font-bold text-blueColor" href="/login">
-            Sign In
-          </a>
-        </div>
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default SetPassword;

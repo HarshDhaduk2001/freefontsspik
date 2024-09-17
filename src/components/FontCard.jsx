@@ -1,9 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiHeart } from "react-icons/bi";
 import heart from "../assets/heart.png";
 
 const FontCard = () => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleResize = () => {
+    if (window.innerWidth <= 768) {
+      setIsHovered(true);
+    } else {
+      setIsHovered(false);
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div
       className="border border-blueColor hover:bg-[#F5F5F5] hover:dark:bg-[#16181E] rounded-3xl w-full md:w-[1/2] lg:1/3 xl:1/4 px-4 py-2 text-[#333333] dark:text-whiteColor"

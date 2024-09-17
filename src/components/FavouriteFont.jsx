@@ -51,11 +51,7 @@ const FavouriteFont = () => {
                 onClick={() => setActive(index)}
               >
                 <h1
-                  className={`${i.font} text-xl md:text-4xl lg:text-7xl ${
-                    active === index
-                      ? "text-blueColor" // Active state color
-                      : "" // Inactive state color
-                  }`}
+                  className={`text-xl md:text-4xl lg:text-7xl`}
                 >
                   {i.title}
                 </h1>

@@ -1,9 +1,8 @@
 /* eslint-disable eqeqeq */
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import Search from "../assets/Search.png";
 import { FaBars, FaTimes } from "react-icons/fa";
-import SignupIcon1 from "../assets/SignupIcon1.png";
+import img from "../assets/images/common";
 
 const headerData = [
   { id: 1, title: "Home", link: "/" },
@@ -41,7 +40,7 @@ const Header = () => {
         </div>
         <div className="hidden lg:flex items-center justify-center">
           <div className="flex items-center justify-center bg-[#F5F5F5] w-full py-2 px-4 rounded-lg gap-2">
-            <img src={Search} alt="search" />
+            <img src={img.Search} alt="search" />
             <input
               type="text"
               placeholder="Search all font and foundries"
@@ -53,7 +52,7 @@ const Header = () => {
               href="/login"
               className="flex items-center justify-center whitespace-nowrap gap-2"
             >
-              <img src={SignupIcon1} alt="SignupIcon1" />
+              <img src={img.SignupIcon1} alt="SignupIcon1" />
               <span>Sign in / Sign up</span>
             </a>
           </div>
@@ -97,7 +96,7 @@ const Header = () => {
               href="/login"
               className="flex items-center justify-center whitespace-nowrap gap-2"
             >
-              <img src={SignupIcon1} alt="SignupIcon1" />
+              <img src={img.SignupIcon1} alt="SignupIcon1" />
               Sign in / Sign up
             </a>
           </div>

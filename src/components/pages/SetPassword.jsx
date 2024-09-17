@@ -2,7 +2,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import Trophy from "../../assets/Trophy.png"
+import img from "../../assets/images/common";
 
 const validatePassword = (password) => password.trim().length >= 6;
 
@@ -156,8 +156,8 @@ const SetPassword = () => {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center w-[90%] md:w-[50%] lg:w-[50%] xl:w-[30%] py-8 px-16 bg-whiteColor dark:bg-[#16181E] rounded-2xl">
-        <img src={Trophy} alt="" />  
-        <h1 className="text-xl lg:text-2xl py-2 font-bold mb-1 text-neutralMedium text-center">
+          <img src={img.Trophy} alt="" />
+          <h1 className="text-xl lg:text-2xl py-2 font-bold mb-1 text-neutralMedium text-center">
             Password Change Success
           </h1>
           <p className="text-sm text-[#808191] mb-6 text-center">

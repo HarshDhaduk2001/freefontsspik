@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Feature from "../Feature";
-import img1 from "../../assets/Rectangle 68.png";
-import img2 from "../../assets/Rectangle 62.png";
-import WorldMap from "../../assets/WorldMap.png";
+import img from "../../assets/images/common";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -84,9 +82,9 @@ const Contact = () => {
         {/* Image Section */}
         <div className="relative mt-8">
           <div className="relative flex justify-center">
-            <img src={img1} alt="" />
+            <img src={img.Rectangle68} alt="" />
             <img
-              src={img2}
+              src={img.Rectangle62}
               alt=""
               className="absolute top-20 lg:top-56 left-1/2 transform -translate-x-1/2"
             />
@@ -105,7 +103,7 @@ const Contact = () => {
             We’re here for you <br />
             <span className="text-blueColor">no matter where you are</span>
           </p>
-          <img src={WorldMap} alt="" className="mt-5 lg:mt-10" />
+          <img src={img.WorldMap} alt="" className="mt-5 lg:mt-10" />
         </div>
 
         <div className="bg-[#F5F5F5] dark:bg-darkCharcol px-10 mx-2 lg:mx-0 mb-8 lg:mb-20 rounded-2xl pb-8">
@@ -114,7 +112,10 @@ const Contact = () => {
           </p>
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
             <div className="lg:w-1/2 flex flex-col items-start justify-start">
-              <form onSubmit={handleSubmit} className="flex flex-col items-start justify-start w-full">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col items-start justify-start w-full"
+              >
                 <label
                   htmlFor="fullName"
                   className="font-medium mt-4 text-[16px]"
@@ -203,7 +204,9 @@ const Contact = () => {
               </form>
             </div>
             <div className="w-full lg:w-1/2 flex flex-col items-start justify-start lg:pr-10">
-              <p className="text-[22px] lg:text-[46px] font-medium">Join Our Newsletter</p>
+              <p className="text-[22px] lg:text-[46px] font-medium">
+                Join Our Newsletter
+              </p>
               <p className="text-[14px] lg:text-[18px]">
                 Add your details and you'll receive our quarterly email,
                 including what's happening with the wildlife, nature and

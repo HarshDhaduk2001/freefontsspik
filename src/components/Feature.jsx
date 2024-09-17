@@ -1,6 +1,5 @@
 import React from "react";
-import feature from "../assets/Feature.png";
-import icon from "../assets/Bullet_Round_White.png";
+import img from "../assets/images/common";
 
 const featureData = {
   card: [
@@ -34,7 +33,7 @@ const Feature = () => {
           </p>
           <p className="text-[24px] lg:text-[42px]">What do we give to you?</p>
         </div>
-        <img src={feature} alt="bg" className="pt-4 hidden lg:block" />
+        <img src={img.FeatureImage} alt="bg" className="pt-4 hidden lg:block" />
       </div>
       <div className="flex flex-col lg:flex-row items-start justify-center w-full mx-10 px-10 mt-8 gap-8 lg:gap-16">
         {featureData.card.map((i, index) => (
@@ -43,13 +42,13 @@ const Feature = () => {
             className="flex flex-col items-start justify-center gap-1 w-full lg:w-1/3"
           >
             <div className="flex items-center justify-start gap-2">
-              <img src={icon} alt="icon" />
+              <img src={img.Bullet_Round_White} alt="icon" />
               <p className="text-[18px] lg:text-[24px] text-blueColor">
                 {i.title}
               </p>
             </div>
             <p className="text-[14px] w-[75%]">{i.desc}</p>
-          </div>    
+          </div>
         ))}
       </div>
       <div className="flex items-center justify-between mx-10 px-8 w-full mt-8 mb-10">

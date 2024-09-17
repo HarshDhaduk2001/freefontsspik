@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BiHeart } from "react-icons/bi";
-import heart from "../assets/heart.png";
+import img from "../assets/images/common";
 
 const FontCard = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -36,7 +36,7 @@ const FontCard = () => {
         {isHovered && (
           <span className="flex items-center justify-center border border-grayColor rounded-full h-6 w-6">
             {/**<BiHeart />**/}
-            <img src={heart} alt="" />
+            <img src={img.heart} alt="" />
           </span>
         )}
       </div>

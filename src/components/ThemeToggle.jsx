@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 const ThemeToggle = (props) => {
-  const [dark, setDark] = useState(
-    window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
+  const [dark, setDark] = useState(false
+    // window.matchMedia &&
+    //   window.matchMedia("(prefers-color-scheme: dark)").matches
   );
 
   const darkModeHandler = () => {
@@ -12,19 +12,19 @@ const ThemeToggle = (props) => {
     document.body.classList.toggle("dark");
   };
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e) => {
-      setDark(e.matches);
-      document.body.classList.toggle("dark", e.matches);
-    };
+  // useEffect(() => {
+  //   const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  //   const handleChange = (e) => {
+  //     setDark(e.matches);
+  //     document.body.classList.toggle("dark", e.matches);
+  //   };
 
-    mediaQuery.addEventListener("change", handleChange);
+  //   mediaQuery.addEventListener("change", handleChange);
 
-    document.body.classList.toggle("dark", mediaQuery.matches);
+  //   document.body.classList.toggle("dark", mediaQuery.matches);
 
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
+  //   return () => mediaQuery.removeEventListener("change", handleChange);
+  // }, []);
 
   return (
     <div

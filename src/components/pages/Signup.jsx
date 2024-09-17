@@ -77,7 +77,9 @@ const Signup = () => {
         <h1 className="text-2xl font-bold mb-1 text-neutralMedium text-center lg:text-left">
           Start for free👋
         </h1>
-        <p className="text-sm text-[#808191] mb-6">Access to all features</p>
+        <p className="text-sm text-[#808191] mb-6 text-center">
+          Access to all features
+        </p>
         <form onSubmit={handleSubmit} className="w-full">
           {/* Full Name Field */}
           <div>
@@ -91,8 +93,8 @@ const Signup = () => {
               type="text"
               className={`border ${
                 fullNameError ? "border-red-500" : "border-[#F2F2F2]"
-              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
-              placeholder="Enter Your Full Name"
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor mb-2 rounded-lg w-full py-2 px-4 outline-none`}
+              placeholder="Enter Your Name"
               value={fullName}
               onChange={(e) => {
                 setFullName(e.target.value);
@@ -119,7 +121,7 @@ const Signup = () => {
               type="text"
               className={`border ${
                 emailError ? "border-red-500" : "border-[#F2F2F2]"
-              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor mb-2 rounded-lg w-full py-2 px-4 outline-none`}
               placeholder="Enter Your Email"
               value={email}
               onChange={(e) => {
@@ -147,8 +149,8 @@ const Signup = () => {
               type={passwordVisible ? "text" : "password"}
               className={`border ${
                 passwordError ? "border-red-500" : "border-[#F2F2F2]"
-              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
-              placeholder="Enter Your Password"
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor mb-2 rounded-lg w-full py-2 px-4 outline-none`}
+              placeholder="Create a Password"
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -183,8 +185,8 @@ const Signup = () => {
               type={confirmPasswordVisible ? "text" : "password"}
               className={`border ${
                 confirmPasswordError ? "border-red-500" : "border-[#F2F2F2]"
-              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
-              placeholder="Confirm Your Password"
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor mb-2 rounded-lg w-full py-2 px-4 outline-none`}
+              placeholder="Confirm Password"
               value={confirmPassword}
               onChange={(e) => {
                 setConfirmPassword(e.target.value);

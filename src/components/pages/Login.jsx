@@ -67,7 +67,7 @@ const Login = () => {
               type="text"
               className={`border ${
                 emailError ? "border-red-500" : "border-[#F2F2F2]"
-              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor mb-2 rounded-lg w-full py-2 px-4 outline-none`}
               placeholder="Enter Your Email"
               value={email}
               onChange={(e) => {
@@ -105,7 +105,7 @@ const Login = () => {
               type={passwordVisible ? "text" : "password"}
               className={`border ${
                 passwordError ? "border-red-500" : "border-[#F2F2F2]"
-              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor mb-2 rounded-lg w-full py-2 px-4 outline-none`}
               placeholder="Enter Your Password"
               value={password}
               onChange={(e) => {

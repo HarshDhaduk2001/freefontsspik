@@ -41,9 +41,9 @@ const ForgotPassword = () => {
     <div className="flex items-center justify-center h-screen bg-[#F2F2F2] dark:bg-[#0A0A0A]">
       <div className="flex flex-col items-center justify-center w-[90%] md:w-[50%] lg:w-[50%] xl:w-[30%] py-10 px-16 bg-whiteColor dark:bg-[#16181E] rounded-2xl">
         <h1 className="text-2xl font-bold mb-1 text-neutralMedium text-center lg:text-left">
-          Set Password
+          Forgot Password?
         </h1>
-        <p className="text-sm text-[#808191] mb-6">
+        <p className="text-sm text-[#808191] mb-6 text-center">
           Restore access to your account
         </p>
         <form onSubmit={handleSubmit} className="w-full">
@@ -58,7 +58,7 @@ const ForgotPassword = () => {
               type="text"
               className={`border ${
                 emailError ? "border-red-500" : "border-[#F2F2F2]"
-              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] mb-2 rounded-lg w-full py-2 px-4 outline-none`}
               placeholder="Enter Your Email"
               value={email}
               onChange={(e) => {

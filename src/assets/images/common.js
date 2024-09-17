@@ -8,6 +8,7 @@ import Search from "./Search.png";
 import SignupIcon1 from "./SignupIcon1.png";
 import Trophy from "./Trophy.png";
 import WorldMap from "./WorldMap.png";
+import DetailsImage from "./Mask group.png";
 
 export default {
   Bullet_Round_White,
@@ -19,4 +20,5 @@ export default {
   SignupIcon1,
   Trophy,
   WorldMap,
+  DetailsImage,
 };

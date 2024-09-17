@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Signup from "./components/pages/Signup";
 import ForgotPassword from "./components/pages/ForgotPassword";
 import SetPassword from "./components/pages/SetPassword";
+import HomeDetails from "./components/pages/HomeDetails";
 
 const App = () => {
   const location = useLocation();
@@ -47,6 +48,9 @@ const App = () => {
           <Route path="howtoinstall" element={<Howtoinstall />} />
           <Route path="licenses" element={<License />} />
           <Route path="faq" element={<FAQ />} />
+
+          {/* Dynamic Route */}
+          <Route path="/:id" element={<HomeDetails />} />
         </Routes>
       </div>
       {!hideHeaderFooter && <Footer />}

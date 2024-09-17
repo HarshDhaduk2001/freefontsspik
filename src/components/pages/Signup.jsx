@@ -71,8 +71,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-[#F2F2F2] dark:bg-[#16181E]">
-      <div className="flex flex-col items-center justify-center w-[90%] md:w-[50%] lg:w-[50%] xl:w-[30%] py-8 px-16 bg-whiteColor dark:bg-blackColor rounded-2xl">
+    <div className="flex items-center justify-center h-screen bg-[#F2F2F2] dark:bg-[#0A0A0A]">
+      <div className="flex flex-col items-center justify-center w-[90%] md:w-[50%] lg:w-[50%] xl:w-[30%] py-8 px-16 bg-whiteColor dark:bg-[#16181E] rounded-2xl">
         <h1 className="text-2xl font-bold mb-1 text-neutralMedium text-center lg:text-left">
           Start for free👋
         </h1>
@@ -90,7 +90,7 @@ const Signup = () => {
               type="text"
               className={`border ${
                 fullNameError ? "border-red-500" : "border-[#F2F2F2]"
-              } placeholder:text-[#A3A1A7] text-[#333] my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
               placeholder="Enter Your Full Name"
               value={fullName}
               onChange={(e) => {
@@ -118,7 +118,7 @@ const Signup = () => {
               type="text"
               className={`border ${
                 emailError ? "border-red-500" : "border-[#F2F2F2]"
-              } placeholder:text-[#A3A1A7] text-[#333] my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
               placeholder="Enter Your Email"
               value={email}
               onChange={(e) => {
@@ -146,7 +146,7 @@ const Signup = () => {
               type={passwordVisible ? "text" : "password"}
               className={`border ${
                 passwordError ? "border-red-500" : "border-[#F2F2F2]"
-              } placeholder:text-[#A3A1A7] text-[#333] my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
               placeholder="Enter Your Password"
               value={password}
               onChange={(e) => {
@@ -182,7 +182,7 @@ const Signup = () => {
               type={confirmPasswordVisible ? "text" : "password"}
               className={`border ${
                 confirmPasswordError ? "border-red-500" : "border-[#F2F2F2]"
-              } placeholder:text-[#A3A1A7] text-[#333] my-2 rounded-lg w-full py-2 px-4 outline-none`}
+              } !bg-transparent placeholder:text-[#A3A1A7] text-[#A3A1A7] dark:text-whiteColor my-2 rounded-lg w-full py-2 px-4 outline-none`}
               placeholder="Confirm Your Password"
               value={confirmPassword}
               onChange={(e) => {
@@ -206,12 +206,6 @@ const Signup = () => {
             )}
           </div>
 
-          <div className="flex items-center justify-end">
-            <a href="/forgot-password" className="text-blueColor">
-              Forgot your password?
-            </a>
-          </div>
-
           <Button
             type="submit"
             fullWidth
@@ -223,7 +217,7 @@ const Signup = () => {
           </Button>
         </form>
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center text-sm lg:text-md">
           Already have an account?&nbsp;
           <a className="underline font-bold text-blueColor" href="/login">
             Sign In

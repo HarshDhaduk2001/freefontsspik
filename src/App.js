@@ -18,6 +18,7 @@ import Signup from "./components/pages/Signup";
 import ForgotPassword from "./components/pages/ForgotPassword";
 import SetPassword from "./components/pages/SetPassword";
 import HomeDetails from "./components/pages/HomeDetails";
+import CategoriesDetail from "./components/pages/CategoriesDetail";
 
 const App = () => {
   const location = useLocation();
@@ -51,6 +52,7 @@ const App = () => {
 
           {/* Dynamic Route */}
           <Route path="/:id" element={<HomeDetails />} />
+          <Route path="categories/:id" element={<CategoriesDetail />} />
         </Routes>
       </div>
       {!hideHeaderFooter && <Footer />}

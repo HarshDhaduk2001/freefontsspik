@@ -19,6 +19,7 @@ import ForgotPassword from "./components/pages/ForgotPassword";
 import SetPassword from "./components/pages/SetPassword";
 import HomeDetails from "./components/pages/HomeDetails";
 import CategoriesDetail from "./components/pages/CategoriesDetail";
+import FontsPairs from "./components/pages/FontsPairs";
 
 const App = () => {
   const location = useLocation();
@@ -37,12 +38,12 @@ const App = () => {
       <div className="flex-grow">
         <Routes>
           <Route index element={<Home />} />
-          Signup
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="set-password" element={<SetPassword />} />
           <Route path="categories" element={<Categories />} />
+          <Route path="fontspairs" element={<FontsPairs />} />
           <Route path="forum" element={<Forum />} />
           <Route path="contactus" element={<Contact />} />
           <Route path="privacypolicy" element={<PrivacyPolicy />} />

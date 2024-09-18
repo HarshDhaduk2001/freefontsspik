@@ -102,7 +102,7 @@ const FavouriteFont = () => {
           Browse Your Favorite
         </div>
         <div className="border border-blueColor rounded-2xl w-full">
-          <div className="flex items-center justify-between px-2 md:px-6 lg:px-12 w-full bg-white rounded-2xl dark:bg-darkCharcol text-darkCharcol dark:text-whiteColor pt-4 md:pt-8 pb-7 md:pb-12">
+          <div className="flex items-center justify-between px-2 sm:px-6 md:px-6 lg:px-12 w-full bg-white rounded-2xl dark:bg-darkCharcol text-darkCharcol dark:text-whiteColor pt-4 md:pt-8 pb-7 md:pb-12">
             {data.map((i, index) => (
               <div
                 key={index}

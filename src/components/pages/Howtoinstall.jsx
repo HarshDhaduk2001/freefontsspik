@@ -4,21 +4,21 @@ import Feature from "../Feature";
 const Howtoinstall = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center mx-4 lg:mx-10 dark:text-white">
+      <div className="flex flex-col items-center justify-center mx-10 dark:text-white mb-10">
         <p className="text-blueColor text-[20px] lg:text-[24px]">
           How To Install
         </p>
-        <div className="relative w-full flex items-center justify-center mt-8">
-          <div className="absolute bg-white dark:bg-blackColor dark:text-white px-2 -top-4 lg:-top-9 text-[26px] lg:text-[42px] text-center">
+        <div className="relative w-full flex flex-col items-center justify-center">
+          <div className="bg-white dark:bg-blackColor dark:text-white px-2 text-[26px] lg:text-[42px] text-center font-bold">
             Browse Your Query
           </div>
-          <div className="border border-blueColor w-full">
-            <div className="flex flex-col items-center justify-center bg-[#F5F5F5] dark:bg-darkCharcol m-4 mt-8 lg:m-8 rounded-lg py-4">
-              <div className="flex flex-col items-start justify-center w-full px-4 lg:px-8">
+          <div className="flex flex-col items-center justify-center w-full mt-4 gap-8 break-all">
+            <div className="flex flex-col items-center justify-center hover:bg-[#F5F5F5] border border-grayColor hover:border-blueColor  dark:bg-darkCharcol rounded-lg p-4 lg:p-8 w-full">
+              <div className="flex flex-col items-start justify-center w-full sm:px-4 lg:px-8">
                 <p className="text-[20px] lg:text-[26px] text-blueColor">
                   How to install a font under Windows?
                 </p>
-                <p className="text-[14px] lg:text-[16px] -mt-1">
+                <p className="text-[14px] lg:text-[16px] md:-mt-1">
                   Extract the files you have downloaded.
                 </p>
                 <p className="text-[14px] lg:text-[16px] my-2">
@@ -86,8 +86,8 @@ const Howtoinstall = () => {
                 </ul>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center bg-[#F5F5F5] dark:bg-darkCharcol m-4 mt-8 lg:m-8 rounded-lg py-4">
-              <div className="flex flex-col items-start justify-center w-full px-4 lg:px-8">
+            <div className="flex flex-col items-center justify-center hover:bg-[#F5F5F5] border border-grayColor hover:border-blueColor  dark:bg-darkCharcol rounded-lg p-4 lg:p-8 w-full">
+              <div className="flex flex-col items-start justify-center w-full sm:px-4 lg:px-8">
                 <p className="text-[20px] lg:text-[26px] text-blueColor">
                   How to install a font under Mac OS?
                 </p>
@@ -158,22 +158,24 @@ const Howtoinstall = () => {
                 </ul>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center bg-[#F5F5F5] dark:bg-darkCharcol m-4 mt-8 lg:m-8 rounded-lg py-4">
-              <div className="flex flex-col items-start justify-center w-full px-4 lg:px-8">
+            <div className="flex flex-col items-center justify-center hover:bg-[#F5F5F5] border border-grayColor hover:border-blueColor  dark:bg-darkCharcol rounded-lg p-4 lg:p-8 w-full">
+              <div className="flex flex-col items-start justify-center w-full sm:px-4 lg:px-8">
                 <p className="text-[20px] lg:text-[26px] text-blueColor">
                   How to install a font under Linux?
                 </p>
                 <p className="text-[14px] lg:text-[16px] my-2">
-                  Copy the font files (.ttf or .otf) to&nbsp;<span className="font-semibold">fonts://</span>&nbsp;in the File
-                  manager.
+                  Copy the font files (.ttf or .otf) to&nbsp;
+                  <span className="font-semibold">fonts://</span>&nbsp;in the
+                  File manager.
                   <br />
-                  Or:&nbsp;Go into the /home folder, in the menu select View &gt; Show
-                  Hidden Files, you will see the hidden folder&nbsp;.fonts&nbsp;(if not,
-                  create it) then copy the font files there.
+                  Or:&nbsp;Go into the /home folder, in the menu select View
+                  &gt; Show Hidden Files, you will see the hidden
+                  folder&nbsp;.fonts&nbsp;(if not, create it) then copy the font
+                  files there.
                   <br />
                   Or:&nbsp;(under some Linux versions - Ubuntu for
-                  example)&nbsp;Double-click the font file &gt; "Install font" button in
-                  the preview window.
+                  example)&nbsp;Double-click the font file &gt; "Install font"
+                  button in the preview window.
                 </p>
               </div>
             </div>

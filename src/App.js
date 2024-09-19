@@ -31,32 +31,38 @@ const App = () => {
     location.pathname === "/set-password";
 
   return (
-    <div className="flex flex-col min-h-screen bg-whiteColor dark:bg-blackColor text-blackColor dark:text-whiteColor">
-      {!hideHeaderFooter && <Header />}
-      <ThemeToggle hideHeaderFooter={hideHeaderFooter} />
-      <ToastContainer />
-      <div className="flex-grow">
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="signup" element={<Signup />} />
-          <Route path="login" element={<Login />} />
-          <Route path="forgot-password" element={<ForgotPassword />} />
-          <Route path="set-password" element={<SetPassword />} />
-          <Route path="categories" element={<Categories />} />
-          <Route path="fontspairs" element={<FontsPairs />} />
-          <Route path="forum" element={<Forum />} />
-          <Route path="contactus" element={<Contact />} />
-          <Route path="privacypolicy" element={<PrivacyPolicy />} />
-          <Route path="howtoinstall" element={<Howtoinstall />} />
-          <Route path="licenses" element={<License />} />
-          <Route path="faq" element={<FAQ />} />
+    <div
+      className={`flex flex-col ${
+        !hideHeaderFooter ? "items-center justify-center" : ""
+      } min-h-screen bg-lightMode1 dark:bg-darkMode1 text-darkCharcol dark:text-whiteColor`}
+    >
+      <div className={`${!hideHeaderFooter ? "!max-w-[1440px]" : ""}`}>
+        {!hideHeaderFooter && <Header />}
+        <ThemeToggle hideHeaderFooter={hideHeaderFooter} />
+        <ToastContainer />
+        <div className="flex-grow">
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="login" element={<Login />} />
+            <Route path="forgot-password" element={<ForgotPassword />} />
+            <Route path="set-password" element={<SetPassword />} />
+            <Route path="categories" element={<Categories />} />
+            <Route path="fontspairs" element={<FontsPairs />} />
+            <Route path="forum" element={<Forum />} />
+            <Route path="contactus" element={<Contact />} />
+            <Route path="privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="howtoinstall" element={<Howtoinstall />} />
+            <Route path="licenses" element={<License />} />
+            <Route path="faq" element={<FAQ />} />
 
-          {/* Dynamic Route */}
-          <Route path="/:id" element={<HomeDetails />} />
-          <Route path="categories/:id" element={<CategoriesDetail />} />
-        </Routes>
+            {/* Dynamic Route */}
+            <Route path="/:id" element={<HomeDetails />} />
+            <Route path="categories/:id" element={<CategoriesDetail />} />
+          </Routes>
+        </div>
+        {!hideHeaderFooter && <Footer />}
       </div>
-      {!hideHeaderFooter && <Footer />}
     </div>
   );
 };

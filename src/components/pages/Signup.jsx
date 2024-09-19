@@ -72,8 +72,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-[#F2F2F2] dark:bg-[#0A0A0A]">
-      <div className="flex flex-col items-center justify-center w-[90%] md:w-[50%] lg:w-[50%] xl:w-[30%] py-8 px-16 bg-whiteColor dark:bg-[#16181E] rounded-2xl">
+    <div className="flex items-center justify-center h-screen bg-lightMode2 dark:bg-darkMode1">
+      <div className="flex flex-col items-center justify-center w-[90%] md:w-[80%] lg:w-[50%] xl:w-[30%] py-8 px-16 bg-lightMode1 dark:bg-darkMode2 rounded-2xl">
         <h1 className="text-2xl font-bold mb-1 text-neutralMedium text-center lg:text-left">
           Start for free👋
         </h1>
